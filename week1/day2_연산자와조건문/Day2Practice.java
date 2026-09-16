@@ -47,6 +47,18 @@ public class Day2Practice {
 
         //연습 문제 2 : 학점 계산기 완성
 
+        // ===== 논리 연산자 실습 =====
+        int age = 26;
+        boolean isStudent = true;
+
+        boolean canDiscount = isStudent && age < 30; 
+        boolean canEnter = age >= 18 || isStudent;
+        boolean isNotStudent = !isStudent;
+
+        System.out.println("학생 가능 : " + canDiscount);
+        System.out.println("입장 가능 : " + canEnter);
+        System.out.println("학생 아님 : " + isNotStudent);
+
 
     }
 }
