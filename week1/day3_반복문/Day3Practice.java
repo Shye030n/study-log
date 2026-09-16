@@ -64,6 +64,57 @@ public class Day3Practice {
             System.out.println();
         }
 
+        System.out.println("===== break 실습 =====");
+        for (int i = 0; i < 10; i++) {
+            if (i == 5) {
+                break;  //반복문 자체를 아예 빠져나감.
+            }
+            System.out.println("i = " + i);
+        }
+
+        System.out.println("===== countinue 실습 =====");
+        for (int i = 0; i < 10; i++) {
+            if (i % 2 == 0) {
+                continue;   //건너뛸 대상. 
+            }
+            System.out.println("i = " + i);
+        }
+        // continue를 만나면 continue 밑에 코드는 실행하지 않고, 다음 반복으로 넘어간다.
+
+        /*
+        for 문 = 변수가 어떤 목표 지점에 도달할 때까지 반복한다. 
+        조건이 거짓이 되는 순간 반복을 멈춘다.
+        조건이 참인 경우에만 반복한다.
+        for (초기값; 조건식; 증감식)
+        for (어디부터; 어디까지; 얼마씩)
+        for (5에서; 1까지 -1씩)
+        for (int a = 5; a >= 1; a--)
+        증가하면서 반복하고 싶을 때 <= || < 랑 ++ : 변수가 비교값보다 작을 때까지 증가시킨다
+        감소하면서 반복하고 싶을 때 >= || > 랑 -- : 변수가 비교값보다 커질 때까지 감소시킨다.
+        */
+
+
+        System.out.println("===== 테스트 1 =====");
+        for (int a = 10; a >= 1; a--) {
+            System.out.print("* ");
+            for (int b = 1; b < 10; b++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+
+        System.out.println("===== 테스트 2 =====");
+        for (int a = 0; a < 10; a++) {
+            for (int b = 0; b < 5; b++) {
+                System.out.print(" ");
+            }
+            for (int c = 0; c < a; c++) {
+                System.out.print("*");
+
+            }
+            System.out.println();
+        }
+
   
 
     }
