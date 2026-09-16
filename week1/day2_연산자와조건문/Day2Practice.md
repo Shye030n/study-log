@@ -37,7 +37,34 @@ boolean canSubmit = isAgeVaild && isTermsAreed && !hasError;
 +) 변수는 이전 연산 결과가 누적된다.
 
 ---
-      
+
+# Switch 문
+```
+int 변수 = 3;
+switch (변수) {
+    default : 
+        Sysout("잘못된 값");
+    case 1:
+        Sysout("겨울");
+        break;
+    case 3:
+        Sysout("봄");
+        break;
+    case 6:
+        Sysout("여름");
+        break;
+    case 9:
+        Sysout("가을");
+        break;
+
+}
+```
+- default 
+: 잘못된 값 콘솔로 출력하게 해서, 버그 찾기 쉽게
+- break 
+: switch는 처음에 조건에 맞는 case를 찾기만 해서, break가 없으면 쭉 이어서 실행 (fall-through 특성)
+
+---   
 
 # 변수
 ```
