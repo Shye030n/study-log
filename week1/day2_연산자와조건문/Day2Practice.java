@@ -63,17 +63,34 @@ public class Day2Practice {
         // ===== 증감 연산자 실습 =====
         int count = 5;
         count++;
-        System.out.println("count++ 후 : " + count);
+        System.out.println("count++ 후 : " + count); //6
         
-        count--;
-        System.out.println("count-- 후 : " + count);
+        count--; //count는 변수이기에, 변수는 매번 초기화되는 것이 아닌, 이전 연산 결과가 계속 이어진다. 누적된다.
+        System.out.println("count-- 후 : " + count); //5 
         
         int x2 = 5;
-        System.out.println("전위 증가 ++x2 : " + ++x2);
+        ++x2;
+        System.out.println("++x2 : " + x2); //6
         
         int y2 = 5;
-        System.out.println("후위 증가 y2++ : " + y2++);
-        System.out.println("y2 최종값 : " + y2);
+        System.out.println("y2++: " + y2++); //5
+        System.out.println("y2 최종값 : " + y2); //6
 
+        // ===== 증감 연산자 연습 및 정리 =====
+        System.out.println("===== 증감연산자 정리 =====");
+        //전위 연산 : 연산 후, 값 대입
+        int q = 10;
+        int w = ++q;    //w = 11, ++q = 11
+        int z = --w;    //z = 10, --w = 10
+        //후위 연산 : 값 대입 후, 연산
+        int e = 10;
+        int r = e++;    //r = 10 e++ = 11
+        int v = r--;    //v = 10, r-- = 9
+        System.out.println("w = " + w);
+        System.out.println("++q = " + q);
+        System.out.println("r = " + r);
+        System.out.println("e++ = " + e++);
+        System.out.println("e = " + e);
+    
     }
 }
