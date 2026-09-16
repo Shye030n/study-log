@@ -27,6 +27,44 @@ public class Day3Practice {
         }
 
         System.out.println("===== 연습문제 1) 1~100 합 구하기 =====");
+        int sum = 0;
+        for (int i = 1; i <= 100; i++) {
+            sum += i; //자꾸 i를 1로 쓰는 실수를 하네.
+        }
+        /*
+        i = 0 인 경우, (하지만, 1부터 100까지 라는 문제 그대로 옮겼을 때, 실수도 줄고 코드 읽기도 쉽다.) 
+        for (int i = 0; i < 100; i++) {
+            sum += i + 1;   //sum = sum + 1; 과 동일
+        }
+        */
+        System.out.println("1 ~ 100까지 합은 " + sum);
+
+        System.out.println("===== 연습 문제 2) 구구단 =====");
+        for (int dan = 1; dan <= 9; dan++){
+            System.out.println("[ " + dan + " 단 ]");
+            for (int i = 1; i <= 9; i++) {
+                System.out.println(dan + " x " + i + " = " + dan * i);
+            }
+            
+        }
+
+        System.out.println("===== 연습 문제 3-1) 정삼각형 별 찍기 =====");
+        for (int a = 1; a <= 5; a++) {
+            for (int b = 1; b <= a; b++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+
+        System.out.println("===== 연습 문제 3-2) 역삼각형 =====");
+        for (int a = 5; a >= 1; a--) {
+            for (int b = 1; b <= a; b++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+
+  
 
     }
 }
