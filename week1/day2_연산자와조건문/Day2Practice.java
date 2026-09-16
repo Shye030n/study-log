@@ -60,5 +60,20 @@ public class Day2Practice {
         System.out.println("학생 아님 : " + isNotStudent);
 
 
+        // ===== 증감 연산자 실습 =====
+        int count = 5;
+        count++;
+        System.out.println("count++ 후 : " + count);
+        
+        count--;
+        System.out.println("count-- 후 : " + count);
+        
+        int x2 = 5;
+        System.out.println("전위 증가 ++x2 : " + ++x2);
+        
+        int y2 = 5;
+        System.out.println("후위 증가 y2++ : " + y2++);
+        System.out.println("y2 최종값 : " + y2);
+
     }
 }
