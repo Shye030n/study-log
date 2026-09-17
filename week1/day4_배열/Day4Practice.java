@@ -45,5 +45,18 @@ public class Day4Practice {
             }
         }
         System.out.println("최소값은, " + min);
+
+        System.out.println("===== 연습 문제 3) 배열 뒤집기 =====");
+        int[] original = {1, 2, 3, 4, 5};
+        int[] reversed;
+        reversed = new int[original.length];
+
+        for (int i = 0; i < original.length; i++) {
+            reversed[i] = original[original.length - 1 - i];    //배열의 인덱스는 0부터 시작하니까
+        }
+        for (int i = 0; i < reversed.length; i++) {
+            System.out.print(reversed[i] + ", ");
+        }
+
     }
 }
