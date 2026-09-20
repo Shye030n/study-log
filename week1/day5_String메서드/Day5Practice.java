@@ -55,6 +55,33 @@ public class Day5Practice {
         System.out.println("a.equals(b): " + a.equals(b));     //true
 
         System.out.println("c == d : " + (c == d));      //false
+
+        //연습 문제 
+        System.out.println("===== 연습 문제 1) 이름에서 성/이름 분리하기 =====");
+        String myName = "김서현";
+
+        String firstName = myName.substring(0,1);
+        String lastName = myName.substring(1);
+
+        System.out.println("성 : " + firstName);
+        System.out.println("이름 : " + lastName);
+
+
+        System.out.println("===== 연습 문제 2) 회문 판별 =====");
+        //회문(palindrome) 이란, 앞으로 뒤로 읽어도 똑같은 문자열 - ex)level, 기러기 ...
+        String word = "level";
+        boolean isPalindrome = true;
+
+        for (int i = 0; i < word.length(); i++) {
+            if(word.charAt(i) != word.charAt(word.length() - 1 - i)) {
+                isPalindrome = false;
+                break;
+            }
+        }
+        System.out.println(word + "는 회문인가? " + isPalindrome);
+
+        
+        //일단 작성해. 아 배고파 샤갈
         
         
         
