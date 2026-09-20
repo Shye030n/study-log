@@ -69,19 +69,21 @@ public class Day5Practice {
 
         System.out.println("===== 연습 문제 2) 회문 판별 =====");
         //회문(palindrome) 이란, 앞으로 뒤로 읽어도 똑같은 문자열 - ex)level, 기러기 ...
-        String word = "level";
+        String word = "holdeloh";
         boolean isPalindrome = true;
-
-        for (int i = 0; i < word.length(); i++) {
-            if(word.charAt(i) != word.charAt(word.length() - 1 - i)) {
+    
+        for (int i = 0; i < word.length() / 2; i++) {
+            // System.out.println(i + " 번째");
+            if(word.charAt(i) != word.charAt(word.length() - 1 - i)) { //다르면 중단하겠다.
                 isPalindrome = false;
-                break;
+                System.out.println( + i + "번째가 다릅니다."); 
+                break; //자신을 감싸고 잇는 가장 가까운 반복문을 통째로 종료시킴.
             }
         }
-        System.out.println(word + "는 회문인가? " + isPalindrome);
+        System.out.println(" 에서 break 걸림. 반복 중단. " + word + "는 회문인가? " + isPalindrome);
 
         
-        //일단 작성해. 아 배고파 샤갈
+        
         
         
         
