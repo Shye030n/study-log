@@ -74,7 +74,7 @@ public class Day3Practice {
 
         System.out.println("===== countinue 실습 =====");
         for (int i = 0; i < 10; i++) {
-            if (i % 2 == 0) {
+            if (i % 2 == 0) {   //짝수
                 continue;   //건너뛸 대상. 
             }
             System.out.println("i = " + i);
