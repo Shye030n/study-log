@@ -74,7 +74,7 @@ public class Day5Practice {
     
         for (int i = 0; i < word.length() / 2; i++) {
             // System.out.println(i + " 번째");
-            if(word.charAt(i) != word.charAt(word.length() - 1 - i)) { //다르면 중단하겠다.
+            if(word.charAt(i) != word.charAt(word.length() - 1 - i)) { //다르면 중단할 시점
                 isPalindrome = false;
                 System.out.println( + i + "번째가 다릅니다."); 
                 break; //자신을 감싸고 잇는 가장 가까운 반복문을 통째로 종료시킴.
