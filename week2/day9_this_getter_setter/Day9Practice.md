@@ -7,6 +7,7 @@
 
 
 ## getter / setter / private
+getter와 setter는, 필드에 직접 접근하지 않고, 메서드로 값을 읽고/쓰게 하는 관례
 : private로 필드를 막고, getter/setter 로만 데이터에 접근할 수 있게 함. (= 캡슐화)
 왜? ) setter 안에서 "이 값이 유효한가" 검증하는 로직을 추가할 수 있음.
 
