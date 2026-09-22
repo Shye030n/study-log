@@ -14,7 +14,7 @@
 2. new Member(...)를 만나면 -> 생성자 호출
 3. 생성자 안에서 매개변수 값을 필드에 복사해서 저장 (this.필드 = 매개변수)
 4. 완성된 객체가 m1 변수에담김
-5. m1.메서드() 호출 시, m1의 필드값을 사요애서 그 메서드가 실행됨.
+5. m1.메서드() 호출 시, m1의 필드값을 사용해서 그 메서드가 실행됨.
 ```
 public class Day8Practice {
     public static void main(String[] args) {    // 1)
@@ -25,10 +25,8 @@ public class Day8Practice {
 class Member {
     // 필드
 
-    public Member(){ //생성자                     // 3)
-
-    }
+    public Member(){ }//생성자                     // 3)
+    
     // 메서드
-
 }
 ```
