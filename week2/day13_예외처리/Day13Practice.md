@@ -23,3 +23,28 @@ sysout(arr[5]);
 ```
     : 컴파일러 입장에서는 문법적으로 정상이기에, 즉 배열에 인덱스로 접근하는 문법은 맞으니,
     실제로 배열 크기가 몇인지는 프로그램이 실제로 돌아가봐야 아는 것임. (런타임에)
+
+# 방법 1) 생성자에서 에러 객체 발생시키기 throw
+main {
+    try {
+        Member m = new Member(-1); //객체 생성 -> 생성자 
+                                  //에러 발생. -> catch 블럭으로 즉시 이동
+    } catch (IllegalArgumentException e) {
+        sysout("잘못된 인자값: " + e.getMessage());    //에러 처리
+    }
+    sysout("프로그램 정상 작동");
+} 
+
+Member {
+    int age;
+
+    public Member(int age) {
+        //파라미터를 필드에 넣을 때 값 확인해서 잘못된 값인 경우 
+            if (age < 0)
+            throw new IllegalArgumentException("나이는 음수일 수 없음."); 
+         //예외 객체로 throw (무슨 에러 발생했는지. 예외 상세 메세지 남기기)
+         else, 생성자 초기화 실행
+
+    }
+}
+    
