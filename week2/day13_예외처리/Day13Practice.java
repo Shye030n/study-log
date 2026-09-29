@@ -22,8 +22,9 @@ public class Day13Practice {
         System.out.println("프로그램 끝!");
 
         System.out.println("===== throw 나이가 음수면 예외 던지기 ====");
+        Member m = new Member(-1);
         try {
-            Member m = new Member(-1);
+            m.checkAge(m.age);
         }
          catch (IllegalArgumentException e) {
             System.out.println("잘못된 값: " + e.getMessage());
@@ -37,18 +38,18 @@ class Member {
 
     public Member(int age) {
         //1. 생성자에서 예외 throw
-        if(age < 0) {
-            throw new IllegalArgumentException("나이는 음수일 수 없습니다.");
-        } else 
+        // if(age < 0) {
+        //     throw new IllegalArgumentException("나이는 음수일 수 없습니다.");
+        // } else 
             this.age = age;
     }
 
     //2. 메서드로 예외 throw
-    // public void checkAge(int age) {
-    //     if (age < 0) {
-    //         throw new IllegalArgumentException("음수는 나이 안돼용");
-    //     }
-    // }
+    public void checkAge(int age) {
+        if (age < 0) {
+            throw new IllegalArgumentException("음수는 나이 안돼용");
+        }
+    }
 }
 
 
