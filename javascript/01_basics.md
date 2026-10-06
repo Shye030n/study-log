@@ -1,3 +1,33 @@
+### 문제 풀며 추가 개념
+undefined 는 값, 변수는 있는데 값이 없는 상태라 에러 없이 출력
+not defined 는 에러, 현재 위치에서 그 이름 자체를 모른다는 뜻으로 실행 중단
+
+호이스팅 에서
+Cannot access 'q' before initialization 에러가 발생하면 코드 중단. 하위코드 실행 X
+
+=> 최종
+undefined / not defined / before initialization 핵심
+is
+- (에러) x is not defined
+    스코프 밖
+    선언 안함
+    오타
+- (에러) Cannot access 'x' before initialization 
+    let/const 선언 줄 보다 위에서 사용
+- (값) undefined
+     var 선언 줄 보다 위에서 사용
+     let x; 처럼 값 초기화 없이 사용
+
+
+지금 위치에서 x라는 이름을 찾을 수 없는 경우 두 가지 상황
+1. 선언은 했지만 스코프 밖에서 사용 (Q5의 y, E-4의 j)
+2. 아예 선언한 적이 없는 이름을 사용 (오타 포함)
+
+truthy / falsy
+밑에 재정리함.
+
+---
+
 ### console.log();
     = 자바의 System.out.println();
 
@@ -22,14 +52,22 @@
 ### == vs ===
     == 는 값만 비교 (타입이 다른 경우 JS가 자동으로 타입을 변환하여, 값 자체만 비교)
     === 는 값 + 데이터 타입까지 비교
+    null인지 확인하려면 === null로 비교해야 한다.
 
 ### console.log
     에서 ` 은 백틱. 작은따옴표 쓰면 ${} 작동 X
     ${} 은, 변수나 식의 값을 끼워넣는 문법
 
 ### truthy/falsy
-    - 자바의 if 문 안에는 boolean 값만 들어갈 수 있지만, js 는 아니다.
-    - !!) falsy로 취급되는 값 : false, 0, ""(빈문자열), null, undefined, NaN
+     자바의 if 안에는 boolean 형만 들어갈 수 있어 if(qty)는 컴파일 에러가 난다.
+    하지만, JS의 경우 "5" - 3 처럼 문자열 -> 숫자로 자동 변환해서 계산하듯
+    ```
+    "5" - 3   →  "5"를 숫자로 자동 변환   →  5
+    if ("0")  →  "0"을 boolean으로 자동 변환  →  ?
+    ```
+    문자열을 true/false로 구분하는 규칙은 정해졌다. falsy인 경우만 알면 된다.
+    falsy 에 해당하는 경우에는, ""(빈문자열), null, undefined, 0, false, Nan 만 false로 반환된다.
+    여기서 "0"은 문자열이 있기에 true.
 
 ### var
     - 재할당 : 가능
@@ -47,6 +85,11 @@
     - 스코프 : 블럭{}
     - 자바의 final 상수와 비슷
     - !!!!) 변수가 다른 객체를 가리키게 바꿀 수는 없지만, 객체 내부 값은 바꿀 수 있음. 
+    ```
+    const user = { name: "A" };   // 1
+    user.name = "B";              // 2 객체 내부 값 변경 O
+    user = { name: "C" };         // 3 재할당 불가 X
+
     ```
     const member = { name: "홍길동" };
         //member ──(const로 고정)──▶ { name: "홍길동" }
