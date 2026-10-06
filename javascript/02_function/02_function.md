@@ -1,4 +1,12 @@
 # 함수
+## 실습 문제 풀면서 필요 내용 추가 정리
+: 복습할 때 주석 읽고 생각 안나는 부분은 코드 보도록.
+//***** 출력(console.log)과 반환(return)은 다르다. 함수에 return 값이 없으면 undefined를 반환한다.
+//***** 변수 선언문이라 끝에 ; 필요
+//***** 예측: 3   | 땡 => 3.5 | 이유: 왜? '/'연산은 몫만 계산하는 연산 아님? 아니래~ | 나머지 연산은 % 지만, 몫만 필요한 경우에는 Math.floor(7 / 2)를 사용해야 함.
+//***** 예측: function | 땡 => number |이유: add함수를 호출해서 반환한 값이 30이라서 마지막에 const value = 30 이니까, number출력인가? ㅇㅇ 마즘.
+//***** 예측: var라서 에러가 아니라, 값인 undefined | 잉? 에러라고? 값아녀? | 이유: console.log(exprVar); 이었다면 undefined 이 맞음. undefined인 상태에 ()를 붙여 실행하려 했기에, 실행할 수 없는 값을 실행하려 했으니, exprVar is not a function(TypeError). 에러 발생. fn vs fn() 문제.
+//***** 예측: 함수 안의 var | 이유: var는 한 블럭 바깥까지가 스코프라서 | 헐, var는 if/for에서는 여러 겹이어도 전부 뚫지만, function을 만나면 범위가 막혀버리는 걸 이제 알았네~ (var 포함 블럭 하나 바깥까진쥴~)
 
 ## 1) 핵심 키워드 
 - 함수 선언문
@@ -66,7 +74,8 @@ const r = add(2, 3);
     Function<Integer, Integer> doubleIt = x -> x * 2;   //타입을 정해야 함
     doubleIt.apply(3);
     ```
-    자바는 doubleIt(3)으로 바로 호출, JS 는 const doubleIt = x => x * 2; 처럼 타입 없이 담음. 
+    자바는 doubleIt.apply(3)으로 호출하고, 
+    JS는 doubleIt(3)으로 바로 호출. const doubleIt = x => x * 2; 처럼 타입 없이 담음. 
     그래서 자바는 제한적, 자바스크립트는 자유롭게. 이 정도 차이만 우선 알아두도록.
 
 ### 4.4 함수를 만드는 세 가지 방법
@@ -83,7 +92,7 @@ const r = add(2, 3);
     const add = (a, b) => { return a + b; } // 여러 줄이면 { return ; } 필요
     ```
 - 변수에 담기 = 2, 3
-- WebSquare 패턴) 객체의 속성에 담기. scwin.btn_oneclick = function() {...}
+- WebSquare 패턴) 객체의 속성에 담기. scwin.btn_onclick = function() {...}
 - 다른 함수에 인자로 넘기기 (Day5 콜백)
 
 ### 4.5 fn vs fn() _ 가장 중요한 구분
@@ -100,7 +109,7 @@ JS의 코드 실행 전 준비 단계에서 엔진이 함수를 등록하는 방
 - 함수 선언문 : 준비 단계에서 함수 본체까지 통째로 준비해서, 함수 선언식 위에서 호출 가능 (여기만, 변수개념에서 추가로 외울 부분)
 
 - const 함수명 = function(){} : 함수 등록만 함. TDZ. 초기화 전에 호출하면 "Cannot access xxx before initialization"으로 접근 불가. (변수랑 똑같)
-- let 은? 값 재할당이라 변수에 안쓰나?
+- let 은? const와 동일하고, 함수를 담은 변수는 재할당할 일이 거의 없어서 실무에서는 함수에 거진 const만 사용.
 - var 함수명 = function(){} : 등록 + undefined로 초기화 (변수랑 똑같)
 
 ### 4-7 함수 스코프
@@ -110,10 +119,10 @@ JS의 코드 실행 전 준비 단계에서 엔진이 함수를 등록하는 방
 ## 5) 실무 연결 포인트
 - WebSquare의 이벤트 함수는 대부분 이런 모양이다.
     ```
-    scwin.btn_search_oneclick = function(e) {...};
+    scwin.btn_search_onclick = function(e) {...};
     ```
     => 함수표현식을 scwin 객체 속성에 담는다 (Day2 + Day3)
-- 이벤트에는 함수를 "참조"로 연결한다. 컴포넌트 속성에 scwin.btn_search_oneclick처럼 괄호 없이 연결하고, 클릭이 일어날 때 WebSquare가 대신 ()를 붙여 실행해준다. fn과 fn()의 개념이 확실치 못하면 "화면 열자마자 실행되버림" 또는 is not a function 버그 발생
+- 이벤트에는 함수를 "참조"로 연결한다. 컴포넌트 속성에 scwin.btn_search_onclick처럼 괄호 없이 연결하고, 클릭이 일어날 때 WebSquare가 대신 ()를 붙여 실행해준다. fn과 fn()의 개념이 확실치 못하면 "화면 열자마자 실행되버림" 또는 is not a function 버그 발생
 - 공통 함수
     : 대부분의 프로젝트에는 금액포맷, 날짜변환, 필수값체크 등 공통 유틸 함수 파일이 있다. 신입이 처음 하는 일 중 하나가 이걸 읽고 호출하는 것이기에, 
     => 매개변수와 return을 보는 눈이 신입에게 중요하다.
