@@ -44,6 +44,7 @@ console.log(banks.length);      //예측: 4
 const last = banks.pop();       //끝에서 꺼내기 (꺼낸 값을 반환)
 console.log(last);              //예측: "우리"
 console.log(banks);             //*** 예측: ["농협", "국민", "신한", "우리"] | 땡... 왜? 값 누적 아냐...?
+// ** pop() = 마지막 칸을 배열에서 제거한 후 값을 돌려줌.
 
 const mixed = [1, "둘", true, {no: 4}];     //여러 타입을 하나의 배열에 넣기
 console.log(mixed[3].no);                   //예측: 4
@@ -72,7 +73,7 @@ console.log(accountList[1].name);           //예측: "송미심"
 console.log(accountList[2]["balance"]);     //예측: 0
 
 for (const row of accountList) {
-    if (row.balance == 0) {
+    if (row.balance === 0) {    //항상 값을 비교할 때는 === 주의
         console.log(`잔액 없음: ${row.name}님`) //예측: 잔액 없음: 신동국님
     }
 }
@@ -82,11 +83,11 @@ console.log("===== F. 메서드와 this =====");
 const account = {
     owner: "김서현",
     balance: 50000,
-    deposit: function(amount) {     //일반 함수 메서드 (함수 선언식?)
+    deposit: function(amount) {     //일반 함수 메서드 (함수 표현식? ㅇㅇ)
         this.balance = this.balance + amount;
         return this.balance;
     },
-    showArrow: () => {      //화살표 함수 메서드. 잉? 처음봐. showArrow = () => {} 이거 아냐? 왜 :가 있지?
+    showArrow: () => {      //화살표 함수 메서드. 잉? 처음봐. showArrow = () => {} 이거 아냐? 왜 :가 있지? | 바보오~ k: v 자나아~ ㅋㅋㅋㅋ 객체 속성에 함수가 들어간 걸 메서드라 한다규~
         return this.owner;      //this가 account를 가리킬까? 
     }
 };
