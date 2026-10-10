@@ -1,9 +1,38 @@
+## 실습 후 추가 개념
+* 객체.키 vs 객체[""]
+    - 객체.키 는 바로 객체 키에 접근
+    - 객체[] 는 우선 []안을 계산하고, 계산한 것을 key로 사용
+
+* pop()
+    - pop은 단순 조회가 아니라, 배열의 마지막 인덱스의 값을 배열에서 제거한 값을 반환
+    - 자바의 list.remove(list.size()-1) 이 돌려주는 값과 과 동일.
+
+* === 
+    - 값 비교할 땐 == 말고 === 사용하도록 유의할 것
+
+* showArrow: () => {}
+```
+// 객체 안에서 만들 때
+const scwin = {
+  btn_search_onclick: function() { ... }
+};
+
+// 객체를 먼저 만들고 밖에서 넣을 때 (Day 2에서 본 모양)
+const scwin = {};
+scwin.btn_search_onclick = function() { ... };
+```
+* Cannot read properties of undefined (reading 'x')
+    - JS 는 존재하지 않는 인덱스에 접근해도 에러가 나지 않고, undefined 값을 반환한다.
+    - 하지만, console.log(account[5].name); 처럼
+    - 존재하지 않는 인덱스의 속성에 접근하면,
+    - undefined의 속성을 읽을 수 없다는 에러 터짐.
+
 # 객체와 배열
 1) 핵심 키워드
 - 객체 리터럴 {}
 - 속성(key: value)
-- 점 표기법 obj.key
-- 대괄호 표기법 obj["key"]
+- 점 표기법 obj.속성명
+- 대괄호 표기법 obj["표현식"]
 - 없는 속성 -> undefined
 - 속성 추가/수정/삭제
 - 배열[] 인덱스
@@ -65,13 +94,35 @@ member["grade"] //키를 문자열로 씀
                 // => 결과는 같음
 
 const key = "grade";
-member["key"]     // 변수 key 안의 값 "grade"로 찾음 -> "VIP"
+member[key]         //변수 key의 값 "grade"로 찾음 -> "VIP"
+member["key"]     // key라는 문자열 그 자체. "key"라는 키를 찾음 -> undefined
 member.key      // "key"라는 이름의 속성을 찾음 -> 없음 -> undefined
 ```
 - 키가 변수에 들어 있으면 반드시 대괄호를 써야 한다.
 - 점 표기법은 점 뒤에 글자를 그대로 키 이름으로 쓴다.
 - 실무에서 "어떤 컬럼을 꺼낼지가 실행중에 정해지는" 경우가 많아서 대괄호도 자주 쓴다.
-? 이해 존나 안가는데 쉬발 뭔소리야 그래서 뭐가다른건데. 진짜 코드 예시가 없으니까 이해 안되는거 같음
+
+자바와 비교
+| | 자바 | JS |
+|---|---|---|
+| 키 이름을 코드에 고정해서 씀 | VO의 member.getGrade() | membwer.grade |
+| 키가 변수에 들어있음 | HashMap의 map.get(col) | member[col] |
+
+1)
+```
+const member = { name: "홍길동", grade: "VIP", balance: 50000 };
+
+const selected = "grade";        // 콤보박스에서 사용자가 "등급"을 골랐다고 가정
+console.log(member[selected]);   // "VIP"
+console.log(member.selected);    // undefined ← "selected"라는 키를 찾아버림
+```
+2)
+```
+const columns = ["name", "grade", "balance"];
+for (const col of columns) {
+  console.log(member[col]);      // 홍길동 → VIP → 50000
+}
+```
 
 4-3. 배열 = 번호 붙은 칸
 ```
@@ -88,7 +139,7 @@ banks[3]        // undefined (없는 칸이지만 에러 아님.)
 
 반복은 두 가지가 있다
 ```
-for (int i = 0; i < banks.length; i++ { banks[i] }  //  자바와 같은 for문
+for (let i = 0; i < banks.length; i++) { banks[i] }  //  자바와 같은 for문
 for (const bank of banks) { bank }                  // 자바의 for-each 문과 비슷
 ```
 - 인덱스로 접근 필요가 없다면 for ... of 문이 깔끔하다. (자바의 for-each)
@@ -103,10 +154,10 @@ SELECT account_no, name, balance FROM account;
 ```
 const accountList = [
     { accountNo: "101-01", name: "김서현", balance: 50000 },    //[0]
-    { accountNo: "101-02", name" "송미심", balance: 100000 }    //[1]
+    { accountNo: "101-02", name: "송미심", balance: 100000 }    //[1]
 ]
 
-accontList[1].name  // "송미심"
+accountList[1].name  // "송미심"
 ```
 - 행 = 객체
 - 컬럼 = 키
@@ -148,7 +199,7 @@ const b = a;
 
 4-7. 실무 최다 에러: Cannot read properties of undefined
 ```
-const lis = [{ name: "홍길동" }];
+const list = [{ name: "홍길동" }];
 list[0].name    //"홍길동"
 list[5]         //undefined(값)
 list[5].name    //Cannot read properties of undefined (reading 'name')=> 존재하지 않는 키의 속성을 꺼내려할/불러올 때 발생하는 에러.
