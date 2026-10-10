@@ -87,7 +87,7 @@ WHERE TRX_DTM < TO_DATE(?, ...)
 ```
 
 ### 참고 : '#{ }' MyBatis에서 자세히
-    + 같이 나오는 키워드 : #{ }, ${ }, PreparedStatement, ?, Mapper XML, MyBatis
+    + 같이 나오는 키워드 : #{ }, ${ }, PreparedStatement, ?, Mapper XML, MyBcd atis
         => 실무에서는 기본적으로 #{ }, 
             꼭 필요할 때만 ${ }를 사용.
         - #{endDt} : endDt는 Java 객체의 필드 이름(getter)와 연결
