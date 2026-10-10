@@ -9,14 +9,13 @@
 - falsy 목록에 없으면 전부 true
 
 ### 4번 const r = show(5); console.log(r); -> 10, undefined
-- show(5): () 있음. -> 지금 실행 -> 함수 안에서 10 출력 -> return 없음 -> r = undefiend
-근데 왜 const r = show(5) 에서 r이 왜 함수인지 모르겠어. 나는 함수를 담아낸 상수라고 생각했는데.
-- console.log(r): r 뒤에 () 없음 -> 실행 X -> 값만 꺼냄 -> r은 return이 없는 함수라서 undefied
+- show(5): () 있음. -> 지금 실행 -> 함수 안에서 10 출력 -> return 없음 -> r = undefined
+- console.log(r): r 뒤에 () 없음 -> 실행 X -> 값만 꺼냄 -> r에는 show(5)의 반환값 undefined만 들어있음. (r은 함수 X)
 - is not a function 은 r()처럼 괄호를 붙였을 때만 발생한다.
 
 ### 5번 sum() -> NaN
 - a = undefined, b = 10 -> undefined + 10 -> 문자열이 없으니 숫자 계산 -> 실패 -> NaN(Not a Number)
-- undefiend : 값이 없음 그 자체.
+- undefined : 값이 없음 그 자체.
 - NaN: 숫자 계산을 시도했는데, 실패한 결과
 - 비교: format() -> undefined + "원" -> 문자열 있으니 연결 -> "undefined원"
 
@@ -27,7 +26,7 @@
 ### 7번 b(1) -> b is not a function (여기서 프로그램 멈춤)
 - 이 시점은 b는 var라 undefined (값)
 - 하지만, b(1)은 undefined를 실행하려 했기에, is not a function(에러)
-- console.log(b)였다면 undefiend 출력
+- console.log(b)였다면 undefined 출력
 
 ### 8번 calcTotal 
 - price * qty -> Number(price) * Number(qty) (명시적 변환)
@@ -37,7 +36,7 @@
 
 문제 1) falsy 값 6개
 : 
-0, "", null, false, Nan, undefined
+0, "", null, false, NaN, undefined
 
 
 문제 2) 결과 예측
@@ -103,7 +102,7 @@ function sum(a, b = 10) {
 }
 console.log(sum(5));
 console.log(sum(5, 1));
-console.log(sum());   //Nan
+console.log(sum());   //NaN
 ```
 :
 15
@@ -130,7 +129,7 @@ y is not a function
 문제 7) 결과 예측 : (try/catch 없음 주의)
 ```
 console.log(a(1));
-console.log(b(1));    // b의 값은 undefined. undefined인 변수에 값을 넣어 '사용'했기에, is not a function.
+console.log(b(1));    // b의 값은 undefined. undefined인 변수에 ()를 붙여 '실행'하려 함 = undefined를 실행하려 했기에, b is not a function 에러 출력
 function a(n) { return n + 1; }
 var b = function(n) { return n + 1; };    
 ```
