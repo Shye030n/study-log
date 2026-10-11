@@ -27,6 +27,10 @@ const accountList = [
     { accountNo: "1001-02", name: "라마바", balance: 20000 },
     { accountNo: "1001-03", name: "사아자", balance: 50000 }
 ];
+
+console.log("===== 문제 3 추가 문제 (보강) =====");
+//담배 한 대 피고 또 해보자.
+
 console.log("===== 문제 3. 함수 작성 =====");
 /*
 - 잔액 합계를 반환하는 함수, getToTalBalance (SQL의 SUM(balance))
