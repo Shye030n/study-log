@@ -45,19 +45,18 @@ const getToTalBalance = function() {
     return sum;
 }
 
-const findByName = function() {
-    for (const n of accountList) {
-        if(n.name !== null && typeof n.name === "string") {
-            return console.log(`${n.name} 을 찾았다!`)
-        } else {
-            console.log("사용자 못찾음");
-            return 0;
+const findByName = function(list, n) {
+    for (const row of list) {
+        if (row.name === n) {
+            return row;
         }
     }
+    return null;
 }
+
 console.log(getToTalBalance(accountList));
-findByName("가나다");
-findByName("오호호");
+console.log(findByName(accountList, "가나다"));
+console.log(findByName(accountList, "오호호"));
 // ㅋㅋㅋㅋ 단단히 잘못되었어.
 
 
